@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\HomeController;
 use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
@@ -25,3 +26,4 @@ Route::get('/', function () {
 
 Route::get('/home', [HomeController::class, 'index'])->middleware(['auth:sanctum', 'verified']);
 Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('dashboard')->middleware(['auth:sanctum', 'verified']);
+Route::resource('berita', BeritaController::class)->middleware(['auth:sanctum', 'verified']);;
